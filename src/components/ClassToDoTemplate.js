@@ -6,16 +6,15 @@ import ToDoList from './ToDoList'
 class ClassToDoTemplate extends Component {
 
     handleCheck = (id) => {
-        const newList = this.props.toDoList.filter((list) => {
+        const newList = this.props.info.toDoList.filter((list) => {
             return list.id !== id
         })
-        this.props.changeMainToDoList(newList)
+        this.props.changeClassToDoList(this.props.info.id, newList)
     }
 
     handleSubmit = (newItem) => {
-        const newList = [...this.props.toDoList, newItem]
-        this.props.changeMainToDoList(newList)
-        
+        const newList = [...this.props.info.toDoList, newItem]
+        this.props.changeClassToDoList(this.props.info.id, newList)
     }
 
     render() {

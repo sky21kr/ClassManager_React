@@ -35,9 +35,23 @@ class App extends Component {
     ]
   }
 
-  changeMainToDoList = (list) => {
+  changeMainToDoList = (toDoList) => {
     this.setState({
-      mainToDoList: list
+      mainToDoList: toDoList
+    })
+  }
+
+  changeClassToDoList = (classId, toDoList) => {
+    const newClassList = this.state.classList.map((cls) => {
+      if(cls.id === classId) {
+        return { ...cls, toDoList: toDoList}
+      } else {
+        return cls
+      }
+    })
+
+    this.setState({
+      classList: newClassList,
     })
   }
 
@@ -46,7 +60,9 @@ class App extends Component {
 
     const classTemplateList = classList.map((cls) => {
       return <ClassToDoTemplate
+                key={cls.id}
                 info={cls}
+                changeClassToDoList={this.changeClassToDoList}
               />
     })
 
