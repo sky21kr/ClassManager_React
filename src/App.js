@@ -1,8 +1,5 @@
-import TopBar from './components/TopBar'
-import MainToDoList from './components/mainToDoList/MainToDoList'
-import ClassToDo from './components/classToDo/ClassToDo'
 import MainToDoTemplate from './components/MainToDoTemplate'
-// import ClassToDoTemplate from './components/ClassToDoTemplate'
+import ClassToDoTemplate from './components/ClassToDoTemplate'
 
 import React, { Component } from 'react';
 
@@ -14,14 +11,24 @@ class App extends Component {
         value: 'test',
       }
     ],
-    class: [
+    classList: [
       {
         id: 2,
-        name: '과목명',
+        name: '국어',
         toDoList: [
           {
-            id: 3,
+            id: 5,
             value: '값',
+          }
+        ],
+      },
+      {
+        id: 3,
+        name: '수학',
+        toDoList: [
+          {
+            id: 6,
+            value: '값123',
           }
         ],
       }
@@ -35,8 +42,13 @@ class App extends Component {
   }
 
   render() {
+    const { mainToDoList, classList } = this.state
 
-    const { mainToDoList } = this.state
+    const classTemplateList = classList.map((cls) => {
+      return <ClassToDoTemplate
+                info={cls}
+              />
+    })
 
     return (
       <div>
@@ -48,9 +60,7 @@ class App extends Component {
           />
         </div>
         <div>
-          {/* <ClassToDoTemplate>
-            <ClassToDo/>
-          </ClassToDoTemplate> */}
+          { classTemplateList }
         </div>
       </div>
     );

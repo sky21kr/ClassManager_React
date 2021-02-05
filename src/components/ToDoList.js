@@ -14,7 +14,6 @@ class ToDoList extends Component {
             />
         ))
 
-
         return(
             <div>
                 { list }
