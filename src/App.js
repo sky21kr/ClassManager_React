@@ -3,6 +3,7 @@ import ClassToDoTemplate from './components/ClassToDoTemplate'
 import AddClassTemplate from './components/AddClassTemplate'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
   state = {
@@ -56,6 +57,19 @@ class App extends Component {
     })
   }
 
+  addClass = (className) => {
+    this.setState({
+      classList: [...this.state.classList,
+        {
+          id: uuidv4(),
+          name: className,
+          toDoList: [],
+        }
+      ]
+    })
+
+  }
+
   render() {
     const { mainToDoList, classList } = this.state
 
@@ -80,7 +94,9 @@ class App extends Component {
           { classTemplateList }
         </div>
         <div>
-          <AddClassTemplate/>
+          <AddClassTemplate
+            addClass={this.addClass}
+          />
         </div>
       </div>
     );
