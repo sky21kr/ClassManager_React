@@ -27,15 +27,8 @@ class App extends Component {
       }
     ]
   }
-  
-
-  test() {
-    console.log('test', this)
-  }
-
 
   changeMainToDoList = (list) => {
-    console.log(this)
     this.setState({
       mainToDoList: list
     })
