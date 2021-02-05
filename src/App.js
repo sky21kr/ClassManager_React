@@ -1,6 +1,7 @@
 import MainToDoTemplate from './components/MainToDoTemplate'
 import ClassToDoTemplate from './components/ClassToDoTemplate'
-
+import AddClassTemplate from './components/AddClassTemplate'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 
 class App extends Component {
@@ -77,6 +78,9 @@ class App extends Component {
         </div>
         <div>
           { classTemplateList }
+        </div>
+        <div>
+          <AddClassTemplate/>
         </div>
       </div>
     );

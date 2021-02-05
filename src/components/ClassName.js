@@ -1,6 +1,6 @@
 import { React, Component } from 'react'
 
-class ClassTitle extends Component {
+class ClassName extends Component {
     render() {
         const { title } = this.props
 
@@ -12,4 +12,4 @@ class ClassTitle extends Component {
     }
 }
 
-export default ClassTitle
+export default ClassName

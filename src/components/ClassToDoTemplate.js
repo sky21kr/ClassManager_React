@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ClassTitle from './ClassTitle'
+import ClassName from './ClassName'
 import ToDoForm from './ToDoForm'
 import ToDoList from './ToDoList'
 
@@ -22,7 +22,7 @@ class ClassToDoTemplate extends Component {
 
         return(
             <div>
-                <ClassTitle
+                <ClassName
                     title={info.name}
                 />
                 <ToDoForm
