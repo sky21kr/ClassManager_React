@@ -7,35 +7,48 @@ import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
   state = {
-    mainToDoList: [
-      {
-        id: 1,
-        value: 'test',
-      }
-    ],
-    classList: [
-      {
-        id: 2,
-        name: '국어',
-        toDoList: [
-          {
-            id: 5,
-            value: '값',
-          }
-        ],
-      },
-      {
-        id: 3,
-        name: '수학',
-        toDoList: [
-          {
-            id: 6,
-            value: '값123',
-          }
-        ],
-      }
-    ]
+    mainToDoList: [],
+    classList: [],
   }
+
+  componentDidMount() {
+    this.setState({
+      mainToDoList: JSON.parse(localStorage.getItem("mainToDoList")) || [],
+      classList: JSON.parse(localStorage.getItem("classList")) || []
+    })
+  }
+
+  // 형식
+  // state = {
+  //   mainToDoList: [
+  //     {
+  //       id: 1,
+  //       value: 'test',
+  //     }
+  //   ],
+  //   classList: [
+  //     {
+  //       id: 2,
+  //       name: '국어',
+  //       toDoList: [
+  //         {
+  //           id: 5,
+  //           value: '값',
+  //         }
+  //       ],
+  //     },
+  //     {
+  //       id: 3,
+  //       name: '수학',
+  //       toDoList: [
+  //         {
+  //           id: 6,
+  //           value: '값123',
+  //         }
+  //       ],
+  //     }
+  //   ]
+  // }
 
   changeMainToDoList = (toDoList) => {
     this.setState({

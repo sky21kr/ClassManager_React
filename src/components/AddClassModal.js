@@ -18,7 +18,9 @@ class AddClassModal extends Component {
     }
 
     handleClose = () => {
-        this.state.name = ""
+        this.setState({
+            name: ""
+        })
         this.props.handleClose()
     }
 
