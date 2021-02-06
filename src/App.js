@@ -53,6 +53,8 @@ class App extends Component {
   changeMainToDoList = (toDoList) => {
     this.setState({
       mainToDoList: toDoList
+    }, () => {
+      localStorage.setItem('mainToDoList', JSON.stringify(this.state.mainToDoList))
     })
   }
 
@@ -67,6 +69,8 @@ class App extends Component {
 
     this.setState({
       classList: newClassList,
+    }, () => {
+      localStorage.setItem('classList', JSON.stringify(this.state.classList))
     })
   }
 
@@ -79,8 +83,9 @@ class App extends Component {
           toDoList: [],
         }
       ]
+    }, () => {
+      localStorage.setItem('classList', JSON.stringify(this.state.classList))
     })
-
   }
 
   render() {
