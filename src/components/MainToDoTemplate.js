@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ToDoForm from './ToDoForm'
 import ToDoList from './ToDoList'
+import './MainToDoTemplate.scss'
 
 class MainToDoTemplate extends Component {
 
@@ -20,7 +21,7 @@ class MainToDoTemplate extends Component {
         const { toDoList } = this.props;
 
         return(
-            <div>
+            <div className="mainToDoTemplate">
                 <ToDoForm
                     handleSubmit={this.handleSubmit}
                 />

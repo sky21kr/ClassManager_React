@@ -1,9 +1,11 @@
+import TopBar from './components/TopBar'
 import MainToDoTemplate from './components/MainToDoTemplate'
 import ClassToDoTemplate from './components/ClassToDoTemplate'
 import AddClassTemplate from './components/AddClassTemplate'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import './App.scss'
 
 class App extends Component {
   state = {
@@ -101,20 +103,22 @@ class App extends Component {
 
     return (
       <div>
-        {/* <TopBar/> */}
-        <div>
-          <MainToDoTemplate
-            toDoList={mainToDoList}
-            changeMainToDoList={this.changeMainToDoList}
-          />
-        </div>
-        <div>
-          { classTemplateList }
-        </div>
-        <div>
-          <AddClassTemplate
-            addClass={this.addClass}
-          />
+        <TopBar/>
+        <div className="contents">
+          <div>
+            <MainToDoTemplate
+              toDoList={mainToDoList}
+              changeMainToDoList={this.changeMainToDoList}
+            />
+          </div>
+          <div>
+            { classTemplateList }
+            <div>
+              <AddClassTemplate
+                addClass={this.addClass}
+              />
+            </div>
+          </div>
         </div>
       </div>
     );
