@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './ToDoItem.scss'
 
 class ToDoItem extends Component {
     render() {
@@ -6,7 +7,7 @@ class ToDoItem extends Component {
         return(
             <div>
                 <li>
-                    <button onClick={ () => handleCheck(id)}>✔️</button>
+                    <button className="checkBtn" onClick={ () => handleCheck(id)}>✔️</button>
                     { value }
                 </li>
             </div>

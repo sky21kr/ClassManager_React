@@ -22,13 +22,17 @@ class MainToDoTemplate extends Component {
 
         return(
             <div className="mainToDoTemplate">
-                <ToDoForm
-                    handleSubmit={this.handleSubmit}
-                />
-                <ToDoList
-                    toDoList={toDoList}
-                    handleCheck={this.handleCheck}
-                />
+                <div>
+                    <ToDoForm
+                        handleSubmit={this.handleSubmit}
+                    />
+                </div>
+                <div className="mainToDoBody">
+                    <ToDoList
+                        toDoList={toDoList}
+                        handleCheck={this.handleCheck}
+                    />
+                </div>
             </div>
         )
     }

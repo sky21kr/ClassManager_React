@@ -102,22 +102,20 @@ class App extends Component {
     })
 
     return (
-      <div>
+      <div className="body">
         <TopBar/>
         <div className="contents">
-          <div>
+          <div className="leftSide">
             <MainToDoTemplate
               toDoList={mainToDoList}
               changeMainToDoList={this.changeMainToDoList}
             />
           </div>
-          <div>
+          <div className="rightSide">
             { classTemplateList }
-            <div>
               <AddClassTemplate
                 addClass={this.addClass}
               />
-            </div>
           </div>
         </div>
       </div>

@@ -1,3 +1,18 @@
+.body {
+    background-color: #DFB18C;
+    // background-image: url('./images/cork-board-background.jpg')
+}
+
 .contents {
     display: flex;
+}
+
+.leftSide {
+    padding: 30px;
+}
+
+.rightSide {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
 }

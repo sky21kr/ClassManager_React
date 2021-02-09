@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ClassName from './ClassName'
 import ToDoForm from './ToDoForm'
 import ToDoList from './ToDoList'
+import './ClassToDoTemplate.scss'
 
 class ClassToDoTemplate extends Component {
 
@@ -21,13 +22,15 @@ class ClassToDoTemplate extends Component {
         const { info } = this.props;
 
         return(
-            <div>
-                <ClassName
-                    title={info.name}
-                />
-                <ToDoForm
-                    handleSubmit={this.handleSubmit}
-                />
+            <div className="classToDoTemplate">
+                <div className="classToDoHeader">
+                    <ClassName
+                        title={info.name}
+                    />
+                    <ToDoForm
+                        handleSubmit={this.handleSubmit}
+                    />
+                </div>
                 <ToDoList
                     toDoList={info.toDoList}
                     handleCheck={this.handleCheck}
