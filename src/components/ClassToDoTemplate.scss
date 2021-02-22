@@ -1,4 +1,6 @@
 .classToDoTemplate {
+    display: flex;
+
     background-color: white;
     margin-right: 50px;
     margin-bottom: 50px;
@@ -6,6 +8,7 @@
     height: 500px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     // border: 1px solid black;
     border-radius: 20px;
@@ -21,4 +24,26 @@
     border-radius: 16px 16px 0px 0px;
     height: 90px;
     background-color: #B3DEF6;
+}
+
+.classTemplateBody {
+    height: 100%;
+    width: 80%;
+}
+
+.classToDoFooter {
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+
+.settingBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px;
 }

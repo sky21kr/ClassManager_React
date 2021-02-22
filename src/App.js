@@ -90,6 +90,20 @@ class App extends Component {
     })
   }
 
+  modifyClass = (classId, modifyClassInfo) => {
+    this.setState({
+      classList: this.state.classList.map((cls) => {
+        if(cls.id === classId) {
+          return { ...cls, ...modifyClassInfo }
+        } else {
+          return cls
+        }
+      })
+    }, () => {
+      localStorage.setItem('classList', JSON.stringify(this.state.classList))
+    })
+  }
+
   render() {
     const { mainToDoList, classList } = this.state
 
@@ -97,6 +111,7 @@ class App extends Component {
       return <ClassToDoTemplate
                 key={cls.id}
                 info={cls}
+                modifyClass={this.modifyClass}
                 changeClassToDoList={this.changeClassToDoList}
               />
     })

@@ -12,8 +12,16 @@ class AddClassModal extends Component {
         })
     }
 
-    handleSubmit = () => {
+    handleAdd = () => {
         this.props.addClass(this.state.name)
+        this.handleClose()
+    }
+
+    handleModify = () => {
+        const modifyClassInfo = {
+            name: this.state.name,
+        }
+        this.props.modifyClass(this.props.classInfo.id, modifyClassInfo)
         this.handleClose()
     }
 
@@ -24,25 +32,28 @@ class AddClassModal extends Component {
         this.props.handleClose()
     }
 
+
     render() {
-        const { modalShow } = this.props
+        const { modalShow, classInfo, mode } = this.props
 
         return (
             <Modal show={modalShow} onHide={this.handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>
-                    수업 추가
+                    { mode === 'add' ? '수업 추가': '수업 수정'}
                 </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div>
                         수업이름
-                        <input value={this.state.name} onChange={this.handleChange}/>
-                    </div>
-                    
+                        <input
+                            defaultValue={mode === 'modify' ? classInfo.name : ''}
+                            onChange={this.handleChange}
+                        />
+                    </div> 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="outline-primary" onClick={this.handleSubmit}>
+                    <Button variant="outline-primary" onClick={mode === 'add' ? this.handleAdd : this.handleModify}>
                         확인
                     </Button>
                     <Button variant="outline-secondary" onClick={this.handleClose}>

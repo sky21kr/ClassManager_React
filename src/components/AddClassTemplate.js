@@ -29,6 +29,7 @@ class AddClassTemplate extends Component {
                     +
                 </Button>
                 <AddClassModal
+                    mode='add'
                     modalShow={modalShow}
                     addClass={addClass}
                     handleClose={this.handleClose}
