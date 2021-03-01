@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './ToDoItem.scss'
+import { FaCheck, FaTrashAlt } from 'react-icons/fa'
+
 
 class ToDoItem extends Component {
     render() {
@@ -7,8 +9,13 @@ class ToDoItem extends Component {
         return(
             <div>
                 <li>
-                    <button className="checkBtn" onClick={ () => handleCheck(id)}>✔️</button>
-                    { value }
+                    <div>
+                        { value }
+                    </div>
+                    <div>
+                        <button className="checkBtn btnn" onClick={ () => handleCheck(id)}><FaCheck /></button>
+                        <button className="checkBtn btnn" onClick={ () => handleCheck(id)}><FaTrashAlt /></button>
+                    </div>
                 </li>
             </div>
         )
