@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import './ToDoForm.scss'
 
 class ToDoForm extends Component {
     state = {
@@ -24,7 +25,12 @@ class ToDoForm extends Component {
     render() {
         return(
             <form onSubmit={this.handleSubmit}>
-                <input value={this.state.input} onChange={this.handleChange}/>
+                <input
+                    className="toDoInput"
+                    value={this.state.input}
+                    onChange={this.handleChange}
+                    placeholder="please Enter To Do List"
+                    />
             </form>
         )
     }
