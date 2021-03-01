@@ -1,6 +1,33 @@
+.classToDoTop {
+    display: flex;
+    padding-right: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(201, 90, 86);
+}
+
+.dropdown-toggle::after {
+    display:none !important;
+}
+
+.btn {
+    padding: 0px !important;
+}
+
+.btn-primary {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.btn-primary.dropdown-toggle:focus {
+    box-shadow: none !important;
+}
+
 .classToDoTemplate {
     display: flex;
-
     background-color: white;
     margin-right: 50px;
     margin-bottom: 50px;
@@ -10,9 +37,9 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    // border: 1px solid black;
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px 1px gray;
+    border-radius: 5px;
+    box-shadow: 0px 2px 12px rgba(0,0,0,.16);
+    background-color: #fafafa;
 }
 
 .classToDoHeader {
@@ -21,29 +48,29 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    border-radius: 16px 16px 0px 0px;
     height: 90px;
-    background-color: #B3DEF6;
+    border-radius: 5px 5px 0 0;
 }
 
 .classTemplateBody {
     height: 100%;
     width: 80%;
+    background-color: #fafafa;
+    overflow-y: scroll;
+}
+
+.classTemplateBody::-webkit-scrollbar{
+    display:none;
 }
 
 .classToDoFooter {
-    border-top: 1px solid black;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     width: 100%;
-    height: 10%;
+    height: 40px;
+    border-radius: 0 0 5px 5px;
+    background-color: rgb(201, 90, 86);
 }
 
-.settingBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ellipsisBtn {
     cursor: pointer;
-    margin: 10px;
+    color: white;
 }

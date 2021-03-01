@@ -4,8 +4,10 @@ import ToDoForm from './ToDoForm'
 import ToDoList from './ToDoList'
 import AddClassModal from './AddClassModal'
 import './ClassToDoTemplate.scss'
-import { BsGear } from 'react-icons/bs'
+import { FaEllipsisH, FaRoad } from 'react-icons/fa'
+import { DropdownButton, Dropdown } from 'react-bootstrap'
 
+// IoEllipsisHorizontalSharp
 class ClassToDoTemplate extends Component {
     state = {
         modalShow: false,
@@ -36,12 +38,31 @@ class ClassToDoTemplate extends Component {
         })
     }
 
+    handleTest = () => {
+        console.log('test')
+    }
+
     render() {
         const { info, modifyClass } = this.props;
         const { modalShow } = this.state
 
         return(
             <div className="classToDoTemplate">
+                <div className="classToDoTop">
+                    <Dropdown>
+                        <Dropdown.Toggle id="dropdown-custom-components">
+                            <FaEllipsisH
+                                className="ellipsisBtn"
+                                onClick={this.handleTest}
+                            />
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item eventKey="1">삭제</Dropdown.Item>
+                            <Dropdown.Item onClick={this.clickModifyBtn} eventKey="2">수정</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
                 <div className="classToDoHeader">
                     <ClassName
                         title={info.name}
@@ -57,10 +78,10 @@ class ClassToDoTemplate extends Component {
                     />
                 </div>
                 <div className="classToDoFooter">
-                    <BsGear
+                    {/* <BsGear
                         className="settingBtn"
                         onClick={this.clickModifyBtn}
-                    />
+                    /> */}
                 </div>
                 <AddClassModal
                     mode={'modify'}
