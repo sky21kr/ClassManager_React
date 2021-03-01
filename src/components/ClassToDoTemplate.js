@@ -3,14 +3,15 @@ import ClassName from './ClassName'
 import ToDoForm from './ToDoForm'
 import ToDoList from './ToDoList'
 import AddClassModal from './AddClassModal'
+import CommonModal from './CommonModal'
 import './ClassToDoTemplate.scss'
-import { FaEllipsisH, FaRoad } from 'react-icons/fa'
-import { DropdownButton, Dropdown } from 'react-bootstrap'
+import { FaEllipsisH } from 'react-icons/fa'
+import { Dropdown } from 'react-bootstrap'
 
-// IoEllipsisHorizontalSharp
 class ClassToDoTemplate extends Component {
     state = {
-        modalShow: false,
+        modifyModalShow: false,
+        deleteModalShow: false,
     }
 
 
@@ -28,23 +29,31 @@ class ClassToDoTemplate extends Component {
 
     clickModifyBtn = () => {
         this.setState({
-            modalShow: true,
+            modifyModalShow: true,
         })
     }
 
-    handleClose = () => {
+    clickClassDeleteBtn = () => {
         this.setState({
-            modalShow: false,
+            deleteModalShow: true,
         })
     }
 
-    handleTest = () => {
-        console.log('test')
+    handleModifyModalClose = () => {
+        this.setState({
+            modifyModalShow: false,
+        })
+    }
+
+    handleDeleteModalClose = () => {
+        this.setState({
+            deleteModalShow: false,
+        })
     }
 
     render() {
-        const { info, modifyClass } = this.props;
-        const { modalShow } = this.state
+        const { info, modifyClass, deleteClass } = this.props;
+        const { modifyModalShow, deleteModalShow } = this.state
 
         return(
             <div className="classToDoTemplate">
@@ -53,12 +62,11 @@ class ClassToDoTemplate extends Component {
                         <Dropdown.Toggle id="dropdown-custom-components">
                             <FaEllipsisH
                                 className="ellipsisBtn"
-                                onClick={this.handleTest}
                             />
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item eventKey="1">삭제</Dropdown.Item>
+                            <Dropdown.Item onClick={this.clickClassDeleteBtn} eventKey="1">삭제</Dropdown.Item>
                             <Dropdown.Item onClick={this.clickModifyBtn} eventKey="2">수정</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
@@ -78,17 +86,20 @@ class ClassToDoTemplate extends Component {
                     />
                 </div>
                 <div className="classToDoFooter">
-                    {/* <BsGear
-                        className="settingBtn"
-                        onClick={this.clickModifyBtn}
-                    /> */}
                 </div>
                 <AddClassModal
                     mode={'modify'}
-                    modalShow={modalShow}
+                    modalShow={modifyModalShow}
                     classInfo={info}
                     modifyClass={modifyClass}
-                    handleClose={this.handleClose}
+                    handleClose={this.handleModifyModalClose}
+                />
+                <CommonModal
+                    modalShow={deleteModalShow}
+                    handleClose={this.handleDeleteModalClose}
+                    handleOk={deleteClass}
+                    modalTitle="수업 삭제"
+                    modalContents="해당 수업을 삭제하시겠습니까?"
                 />
             </div>
         )

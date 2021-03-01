@@ -53,11 +53,11 @@ class AddClassModal extends Component {
                     </div> 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="outline-primary" onClick={mode === 'add' ? this.handleAdd : this.handleModify}>
-                        확인
-                    </Button>
-                    <Button variant="outline-secondary" onClick={this.handleClose}>
+                    <Button variant="secondary" onClick={this.handleClose}>
                         취소
+                    </Button>
+                    <Button variant="primary" onClick={mode === 'add' ? this.handleAdd : this.handleModify}>
+                        확인
                     </Button>
                 </Modal.Footer>
             </Modal>

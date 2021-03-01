@@ -104,6 +104,14 @@ class App extends Component {
     })
   }
 
+  deleteClass = (classId) => {
+    this.setState({
+      classList: this.state.classList.filter((cls) => cls.id !== classId )
+    }, () => {
+      localStorage.setItem('classList', JSON.stringify(this.state.classList))
+    })
+  }
+
   render() {
     const { mainToDoList, classList } = this.state
 
@@ -112,6 +120,7 @@ class App extends Component {
                 key={cls.id}
                 info={cls}
                 modifyClass={this.modifyClass}
+                deleteClass={() => this.deleteClass(cls.id)}
                 changeClassToDoList={this.changeClassToDoList}
               />
     })
