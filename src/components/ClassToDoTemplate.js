@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ClassName from './ClassName'
 import ToDoForm from './ToDoForm'
 import ToDoList from './ToDoList'
-import AddClassModal from './AddClassModal'
+import SubmitClassModal from './SubmitClassModal'
 import CommonModal from './CommonModal'
 import './ClassToDoTemplate.scss'
 import { FaEllipsisH } from 'react-icons/fa'
@@ -87,7 +87,7 @@ class ClassToDoTemplate extends Component {
                 </div>
                 <div className="classToDoFooter">
                 </div>
-                <AddClassModal
+                <SubmitClassModal
                     mode={'modify'}
                     modalShow={modifyModalShow}
                     classInfo={info}

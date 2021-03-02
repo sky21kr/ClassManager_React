@@ -1,7 +1,7 @@
 import { React, Component } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
-class AddClassModal extends Component {
+class SubmitClassModal extends Component {
     state = {
         name: "",
     }
@@ -65,4 +65,4 @@ class AddClassModal extends Component {
     }
 }
 
-export default AddClassModal
+export default SubmitClassModal

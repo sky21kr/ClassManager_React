@@ -1,6 +1,6 @@
 import { React, Component } from 'react'
 import { Button } from 'react-bootstrap'
-import AddClassModal from './AddClassModal'
+import SubmitClassModal from './SubmitClassModal'
 
 class AddClassTemplate extends Component {
     state = {
@@ -28,7 +28,7 @@ class AddClassTemplate extends Component {
                 <Button className="btn" onClick={this.handleShow}>
                     +
                 </Button>
-                <AddClassModal
+                <SubmitClassModal
                     mode='add'
                     modalShow={modalShow}
                     addClass={addClass}
