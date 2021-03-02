@@ -5,7 +5,7 @@ import './MainToDoTemplate.scss'
 
 class MainToDoTemplate extends Component {
 
-    handleCheck = (id) => {
+    handleDeleteItem = (id) => {
         const newList = this.props.toDoList.filter((list) => {
             return list.id !== id
         })
@@ -30,7 +30,7 @@ class MainToDoTemplate extends Component {
                 <div className="mainToDoBody">
                     <ToDoList
                         toDoList={toDoList}
-                        handleCheck={this.handleCheck}
+                        handleDeleteItem={this.handleDeleteItem}
                     />
                 </div>
             </div>
