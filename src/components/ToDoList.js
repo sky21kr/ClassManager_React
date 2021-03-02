@@ -3,7 +3,7 @@ import ToDoItem from './ToDoItem'
 
 class ToDoList extends Component {
     render() {
-        const { toDoList, handleCheck } = this.props
+        const { toDoList, handleCheck, handleDeleteItem} = this.props
 
         const list = toDoList.map(({id, value}) => (
             <ToDoItem
@@ -11,6 +11,7 @@ class ToDoList extends Component {
                 id={id}
                 value={value}
                 handleCheck={handleCheck}
+                handleDeleteItem={handleDeleteItem}
             />
         ))
 

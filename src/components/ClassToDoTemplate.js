@@ -15,7 +15,7 @@ class ClassToDoTemplate extends Component {
     }
 
 
-    handleCheck = (id) => {
+    handleDeleteItem = (id) => {
         const newList = this.props.info.toDoList.filter((list) => {
             return list.id !== id
         })
@@ -82,7 +82,7 @@ class ClassToDoTemplate extends Component {
                 <div className="classTemplateBody">
                     <ToDoList
                         toDoList={info.toDoList}
-                        handleCheck={this.handleCheck}
+                        handleDeleteItem={this.handleDeleteItem}
                     />
                 </div>
                 <div className="classToDoFooter">
