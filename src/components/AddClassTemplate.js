@@ -1,6 +1,7 @@
 import { React, Component } from 'react'
 import { Button } from 'react-bootstrap'
 import SubmitClassModal from './SubmitClassModal'
+import './AddClassTemplate.scss'
 
 class AddClassTemplate extends Component {
     state = {
@@ -24,10 +25,14 @@ class AddClassTemplate extends Component {
         const { addClass } = this.props
         return(
 
-            <div>
-                <Button className="btn" onClick={this.handleShow}>
-                    +
-                </Button>
+            <div className="addBtnTemplate">
+                <div className="addBtnBorder" onClick={this.handleShow}>
+                    <div className="cross"></div>
+                    <div></div>
+                </div>
+                {/* <Button className="addBtn" onClick={this.handleShow}>
+                    
+                </Button> */}
                 <SubmitClassModal
                     mode='add'
                     modalShow={modalShow}
