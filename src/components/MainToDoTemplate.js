@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ToDoForm from './ToDoForm'
 import ToDoList from './ToDoList'
+import moment from 'moment'
 import './MainToDoTemplate.scss'
 
 class MainToDoTemplate extends Component {
@@ -14,6 +15,17 @@ class MainToDoTemplate extends Component {
 
     handleSubmit = (newItem) => {
         const newList = [...this.props.toDoList, newItem]
+        this.props.changeMainToDoList(newList)
+    }
+
+    handleCheckItem = (id) => {
+        const newList = this.props.toDoList.map((list) => {
+            if( list.id === id ) {
+                if(list.checkedTime) list.checkedTime = null
+                else list.checkedTime = moment().format('YYYY-MM-DD')
+                return list
+            } else return list
+        })
         this.props.changeMainToDoList(newList)
     }
 
@@ -31,6 +43,7 @@ class MainToDoTemplate extends Component {
                     <ToDoList
                         toDoList={toDoList}
                         handleDeleteItem={this.handleDeleteItem}
+                        handleCheckItem={this.handleCheckItem}
                     />
                 </div>
             </div>

@@ -29,8 +29,8 @@ class App extends Component {
       mainToDoList: JSON.parse(localStorage.getItem("mainToDoList")) || [],
       classList: newClassList || []
     }, () => {
-      localStorage.setItem('classList', JSON.stringify(this.state.classList))
       localStorage.setItem('mainToDoList', JSON.stringify(this.state.mainToDoList))
+      localStorage.setItem('classList', JSON.stringify(this.state.classList))
     })
   }
 
