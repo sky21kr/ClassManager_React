@@ -5,6 +5,7 @@ import AddClassTemplate from './components/AddClassTemplate'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import moment from 'moment'
 import './App.scss'
 
 class App extends Component {
@@ -13,10 +14,23 @@ class App extends Component {
     classList: [],
   }
 
+  // 체크 후 자정이 넘으면 삭제
   componentDidMount() {
+    const newClassList = JSON.parse(localStorage.getItem("classList")).map((cls) => {
+      const newCls = cls
+      newCls.toDoList = cls.toDoList.filter((toDoItem) => {
+        if(moment(toDoItem.checkedTime).add(1, 'd') < moment()) return false
+        return true
+      })
+      return newCls
+    })
+
     this.setState({
       mainToDoList: JSON.parse(localStorage.getItem("mainToDoList")) || [],
-      classList: JSON.parse(localStorage.getItem("classList")) || []
+      classList: newClassList || []
+    }, () => {
+      localStorage.setItem('classList', JSON.stringify(this.state.classList))
+      localStorage.setItem('mainToDoList', JSON.stringify(this.state.mainToDoList))
     })
   }
 
