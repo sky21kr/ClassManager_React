@@ -22,16 +22,16 @@ class ToDoItem extends Component {
     }
 
     render() {
-        const { value, id, handleDeleteItem } = this.props
+        const { value, id, checkedTime, handleDeleteItem, handleCheckItem } = this.props
         const { showDeleteModal } = this.state
         return(
             <div>
                 <li>
-                    <div>
+                    <div className={ checkedTime ? 'checked' : '' } onDoubleClick={this.handleModifyItem}>
                         { value }
                     </div>
                     <div>
-                        <button className="checkBtn"><FaCheck /></button>
+                        <button className="checkBtn" onClick={() => handleCheckItem(id)}><FaCheck /></button>
                         <button className="deleteBtn" onClick={this.handleDeleteItem}><FaTrashAlt /></button>
                     </div>
                 </li>

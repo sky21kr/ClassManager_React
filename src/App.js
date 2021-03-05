@@ -36,6 +36,7 @@ class App extends Component {
   //         {
   //           id: 5,
   //           value: '값',
+  //           checkedTime: null,
   //         }
   //       ],
   //     },

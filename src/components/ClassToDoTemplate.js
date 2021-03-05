@@ -7,6 +7,7 @@ import CommonModal from './CommonModal'
 import './ClassToDoTemplate.scss'
 import { FaEllipsisH } from 'react-icons/fa'
 import { Dropdown } from 'react-bootstrap'
+import moment from 'moment'
 
 class ClassToDoTemplate extends Component {
     state = {
@@ -21,6 +22,18 @@ class ClassToDoTemplate extends Component {
         })
         this.props.changeClassToDoList(this.props.info.id, newList)
     }
+
+    handleCheckItem = (id) => {
+        const newList = this.props.info.toDoList.map((list) => {
+            if( list.id === id ) {
+                if(list.checkedTime) list.checkedTime = null
+                else list.checkedTime = moment().format('YYYY-MM-DD')
+                return list
+            } else return list
+        })
+        this.props.changeClassToDoList(this.props.info.id, newList)
+    }
+
 
     handleSubmit = (newItem) => {
         const newList = [...this.props.info.toDoList, newItem]
@@ -83,6 +96,7 @@ class ClassToDoTemplate extends Component {
                     <ToDoList
                         toDoList={info.toDoList}
                         handleDeleteItem={this.handleDeleteItem}
+                        handleCheckItem={this.handleCheckItem}
                     />
                 </div>
                 <div className="classToDoFooter">
