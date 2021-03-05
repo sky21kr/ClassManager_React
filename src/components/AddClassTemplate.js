@@ -30,9 +30,6 @@ class AddClassTemplate extends Component {
                     <div className="cross"></div>
                     <div></div>
                 </div>
-                {/* <Button className="addBtn" onClick={this.handleShow}>
-                    
-                </Button> */}
                 <SubmitClassModal
                     mode='add'
                     modalShow={modalShow}
