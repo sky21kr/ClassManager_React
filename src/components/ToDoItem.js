@@ -57,27 +57,26 @@ class ToDoItem extends Component {
         let itemContents = null;
         if(editMode) {
             itemContents = 
-            <input value={this.state.content} onKeyPress={this.submitContent} onChange={this.changeContent}/> 
+            <input className="modifyInput" value={this.state.content} onKeyPress={this.submitContent} onChange={this.changeContent}/> 
         } else {
             itemContents =
-            <div className={ checkedTime ? 'checked' : '' } onDoubleClick={() => this.handleModifyItem(checkedTime)}>
-                { value }
-            </div>
+            <React.Fragment>
+                <div className={ checkedTime ? 'checked' : '' } onDoubleClick={() => this.handleModifyItem(checkedTime)}>
+                    { value }
+                </div>
+                <div>
+                    <button className="checkBtn" onClick={() => handleCheckItem(id)}><FaCheck /></button>
+                    <button className="deleteBtn" onClick={this.handleDeleteItem}><FaTrashAlt /></button>
+                </div>
+            </React.Fragment>
         }
 
         return(
             <div>
                 <li>
                     {itemContents}
-                    {/* <div className={ checkedTime ? 'checked' : '' } onDoubleClick={() => this.handleModifyItem(checkedTime)}>
-                        { value }
-                    </div>
-                    <input/> */}
-                    <div>
-                        <button className="checkBtn" onClick={() => handleCheckItem(id)}><FaCheck /></button>
-                        <button className="deleteBtn" onClick={this.handleDeleteItem}><FaTrashAlt /></button>
-                    </div>
                 </li>
+                <hr></hr>
                 <CommonModal
                     modalShow={showDeleteModal}
                     handleClose={this.handleDeleteModalClose}

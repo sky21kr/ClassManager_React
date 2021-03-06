@@ -29,6 +29,18 @@ class MainToDoTemplate extends Component {
         this.props.changeMainToDoList(newList)
     }
 
+    modifyItemContent = (id, content) => {
+        const newList = this.props.toDoList.map((list) => {
+            if( list.id === id ) {
+                const newList = {
+                    ...list, value: content
+                }
+                return newList
+            } else return list
+        })
+        this.props.changeMainToDoList(newList)
+    }
+
     render() {
         const { toDoList } = this.props;
 
@@ -44,6 +56,7 @@ class MainToDoTemplate extends Component {
                         toDoList={toDoList}
                         handleDeleteItem={this.handleDeleteItem}
                         handleCheckItem={this.handleCheckItem}
+                        modifyItemContent={this.modifyItemContent}
                     />
                 </div>
             </div>
