@@ -34,6 +34,17 @@ class ClassToDoTemplate extends Component {
         this.props.changeClassToDoList(this.props.info.id, newList)
     }
 
+    modifyItemContent = (id, content) => {
+        const newList = this.props.info.toDoList.map((list) => {
+            if( list.id === id ) {
+                const newList = {
+                    ...list, value: content
+                }
+                return newList
+            } else return list
+        })
+        this.props.changeClassToDoList(this.props.info.id, newList)
+    }
 
     handleSubmit = (newItem) => {
         const newList = [...this.props.info.toDoList, newItem]
@@ -97,6 +108,7 @@ class ClassToDoTemplate extends Component {
                         toDoList={info.toDoList}
                         handleDeleteItem={this.handleDeleteItem}
                         handleCheckItem={this.handleCheckItem}
+                        modifyItemContent={this.modifyItemContent}
                     />
                 </div>
                 <div className="classToDoFooter">

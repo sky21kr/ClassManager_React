@@ -2,7 +2,6 @@ import TopBar from './components/TopBar'
 import MainToDoTemplate from './components/MainToDoTemplate'
 import ClassToDoTemplate from './components/ClassToDoTemplate'
 import AddClassTemplate from './components/AddClassTemplate'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment'

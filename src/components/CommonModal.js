@@ -12,12 +12,16 @@ class CommonModal extends Component {
         this.props.handleClose()
     }
 
+    test = (e) => {
+        console.log(e, 123)
+    }
+
     render() {
-        const { modalShow, modalTitle, modalContents, okText, cancelText, handleOk } = this.props
+        const { modalShow, modalTitle, modalContents, okText, cancelText } = this.props
         
 
         return(
-            <Modal show={modalShow} onHide={this.handleClose}>
+            <Modal show={modalShow} keyboard={true} onHide={this.handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>{ modalTitle }</Modal.Title>
                 </Modal.Header>

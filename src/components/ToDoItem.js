@@ -7,6 +7,8 @@ class ToDoItem extends Component {
     state = {
         showCheckModal: false,
         showDeleteModal: false,
+        editMode: false,
+        content: null,
     }
 
     handleDeleteItem = () => {
@@ -21,15 +23,56 @@ class ToDoItem extends Component {
         })
     }
 
+
+    handleModifyItem = (checkedTime) => {
+        if(!checkedTime) {
+            this.setState({
+                editMode: true,
+                content: this.props.value
+            })
+        }
+    }
+
+    changeContent = (e) => {
+        this.setState({
+            content: e.target.value
+        })
+    }
+
+    submitContent = (e) => {
+        if(e.key === "Enter") {
+            this.props.modifyItemContent(this.props.id, this.state.content)
+
+            this.setState({
+                editMode: false,
+                content: null,
+            })
+        }
+    }
+
     render() {
         const { value, id, checkedTime, handleDeleteItem, handleCheckItem } = this.props
-        const { showDeleteModal } = this.state
+        const { showDeleteModal, editMode } = this.state        
+
+        let itemContents = null;
+        if(editMode) {
+            itemContents = 
+            <input value={this.state.content} onKeyPress={this.submitContent} onChange={this.changeContent}/> 
+        } else {
+            itemContents =
+            <div className={ checkedTime ? 'checked' : '' } onDoubleClick={() => this.handleModifyItem(checkedTime)}>
+                { value }
+            </div>
+        }
+
         return(
             <div>
                 <li>
-                    <div className={ checkedTime ? 'checked' : '' } onDoubleClick={this.handleModifyItem}>
+                    {itemContents}
+                    {/* <div className={ checkedTime ? 'checked' : '' } onDoubleClick={() => this.handleModifyItem(checkedTime)}>
                         { value }
                     </div>
+                    <input/> */}
                     <div>
                         <button className="checkBtn" onClick={() => handleCheckItem(id)}><FaCheck /></button>
                         <button className="deleteBtn" onClick={this.handleDeleteItem}><FaTrashAlt /></button>
