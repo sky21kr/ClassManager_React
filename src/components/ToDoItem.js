@@ -40,7 +40,7 @@ class ToDoItem extends Component {
     }
 
     submitContent = (e) => {
-        if(e.key === "Enter") {
+        if(e.key === "Enter" || e.type == "blur") {
             this.props.modifyItemContent(this.props.id, this.state.content)
 
             this.setState({
@@ -57,7 +57,13 @@ class ToDoItem extends Component {
         let itemContents = null;
         if(editMode) {
             itemContents = 
-            <input className="modifyInput" value={this.state.content} onKeyPress={this.submitContent} onChange={this.changeContent}/> 
+            <input
+                className="modifyInput"
+                value={this.state.content}
+                onKeyPress={this.submitContent}
+                onChange={this.changeContent}
+                onBlur={this.submitContent}
+            /> 
         } else {
             itemContents =
             <React.Fragment>
