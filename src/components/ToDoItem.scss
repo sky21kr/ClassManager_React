@@ -1,4 +1,8 @@
+@import './../Common.scss';
+
 li {
+    font-family: $font;
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     list-style:none;
