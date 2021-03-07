@@ -4,6 +4,8 @@ import { FaCheck, FaTrashAlt } from 'react-icons/fa'
 import CommonModal from './CommonModal'
 
 class ToDoItem extends Component {
+    inputRef = React.createRef()
+
     state = {
         showCheckModal: false,
         showDeleteModal: false,
@@ -29,6 +31,8 @@ class ToDoItem extends Component {
             this.setState({
                 editMode: true,
                 content: this.props.value
+            }, () => {
+                this.inputRef.current.focus()
             })
         }
     }
@@ -58,6 +62,7 @@ class ToDoItem extends Component {
         if(editMode) {
             itemContents = 
             <input
+                ref={this.inputRef}
                 className="modifyInput"
                 value={this.state.content}
                 onKeyPress={this.submitContent}
