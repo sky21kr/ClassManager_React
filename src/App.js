@@ -24,8 +24,13 @@ class App extends Component {
       return newCls
     })
 
+    const newMainToDoList = JSON.parse(localStorage.getItem("mainToDoList")).filter((toDoItem) => {
+      if(moment(toDoItem.checkedTime).add(1, 'd') < moment()) return false
+      return true
+    })
+
     this.setState({
-      mainToDoList: JSON.parse(localStorage.getItem("mainToDoList")) || [],
+      mainToDoList: newMainToDoList || [],
       classList: newClassList || []
     }, () => {
       localStorage.setItem('mainToDoList', JSON.stringify(this.state.mainToDoList))
@@ -39,6 +44,7 @@ class App extends Component {
   //     {
   //       id: 1,
   //       value: 'test',
+  //       checkedTime: null,
   //     }
   //   ],
   //   classList: [
