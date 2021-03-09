@@ -24,12 +24,12 @@ class ToDoForm extends Component {
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form className="inputForm" onSubmit={this.handleSubmit}>
                 <input
                     className="toDoInput"
                     value={this.state.input}
                     onChange={this.handleChange}
-                    placeholder="please Enter To Do List"
+                    placeholder="Enter To Do"
                     />
             </form>
         )
