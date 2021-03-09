@@ -72,10 +72,10 @@ class ToDoItem extends Component {
         } else {
             itemContents =
             <React.Fragment>
-                <div className={ checkedTime ? 'checked' : '' } onDoubleClick={() => this.handleModifyItem(checkedTime)}>
+                <div className={ checkedTime ? 'checked itemContent' : 'itemContent' } onDoubleClick={() => this.handleModifyItem(checkedTime)}>
                     { value }
                 </div>
-                <div>
+                <div className="itemBtns">
                     <button className="checkBtn" onClick={() => handleCheckItem(id)}><FaCheck /></button>
                     <button className="deleteBtn" onClick={this.handleDeleteItem}><FaTrashAlt /></button>
                 </div>
@@ -84,7 +84,7 @@ class ToDoItem extends Component {
 
         return(
             <div>
-                <li>
+                <li className="todoItem">
                     {itemContents}
                 </li>
                 <hr></hr>
