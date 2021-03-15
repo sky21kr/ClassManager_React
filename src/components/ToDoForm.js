@@ -9,6 +9,13 @@ class ToDoForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        if(this.state.input.trim() === "") {
+            this.setState({
+                input: "",
+            })
+            return
+        }
+
         const newItem = {id: uuidv4(), value: this.state.input, checkedTime: null}
         this.props.handleSubmit(newItem)
         this.setState({
