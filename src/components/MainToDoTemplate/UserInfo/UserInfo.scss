@@ -1,0 +1,28 @@
+@import '@/Common.scss';
+
+.userInfoTemplate {
+    width: 100%;
+    font-family: $font;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-start;
+}
+
+.userImage {
+    border: 5px solid #9E1814;
+    border-radius: 10px;
+    margin: 20px;
+    width: 150px;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    height: 100%;
+}
+
+.info {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
