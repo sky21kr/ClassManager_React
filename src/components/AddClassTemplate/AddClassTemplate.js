@@ -1,6 +1,6 @@
 import { React, Component } from 'react'
 import { Button } from 'react-bootstrap'
-import SubmitClassModal from './SubmitClassModal'
+import SubmitClassModal from '@/components/Modal/SubmitClassModal'
 import './AddClassTemplate.scss'
 
 class AddClassTemplate extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import ToDoForm from './ToDoForm'
-import ToDoList from './ToDoList'
+import ToDoForm from '@/components/Common/ToDoForm'
+import ToDoList from '@/components/Common/ToDoList'
 import moment from 'moment'
 import './MainToDoTemplate.scss'
 
@@ -46,6 +46,7 @@ class MainToDoTemplate extends Component {
 
         return(
             <div className="mainToDoTemplate">
+                {/* <UserInfo/> */}
                 <ToDoForm
                     handleSubmit={this.handleSubmit}
                 />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './ToDoItem.scss'
 import { FaCheck, FaTrashAlt } from 'react-icons/fa'
-import CommonModal from './CommonModal'
+import CommonModal from '@/components/Modal/CommonModal'
 
 class ToDoItem extends Component {
     inputRef = React.createRef()

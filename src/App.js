@@ -1,7 +1,7 @@
-import TopBar from './components/TopBar'
-import MainToDoTemplate from './components/MainToDoTemplate'
-import ClassToDoTemplate from './components/ClassToDoTemplate'
-import AddClassTemplate from './components/AddClassTemplate'
+import TopBar from '@/components/TopBar/TopBar'
+import MainToDoTemplate from '@/components/MainToDoTemplate/MainToDoTemplate'
+import ClassToDoTemplate from '@/components/ClassToDoTemplate/ClassToDoTemplate'
+import AddClassTemplate from '@/components/AddClassTemplate/AddClassTemplate'
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment'
