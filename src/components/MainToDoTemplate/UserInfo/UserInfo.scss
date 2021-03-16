@@ -6,6 +6,7 @@
     font-weight: 700;
     display: flex;
     align-items: flex-start;
+    position: relative;
 }
 
 .userImage {
@@ -25,4 +26,13 @@
 .info {
     font-weight: 500;
     margin-bottom: 5px;
+}
+
+.userInfoSetting {
+    position: absolute;
+    right : 10px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    z-index: 5;
 }

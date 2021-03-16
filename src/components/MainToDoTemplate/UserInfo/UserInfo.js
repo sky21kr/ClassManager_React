@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './UserInfo.scss'
 import userImage from './image/UserImage.png'
+import { BsGearFill } from "react-icons/bs";
 
 class UserInfo extends Component {
     render() {
@@ -17,6 +18,7 @@ class UserInfo extends Component {
                     <div className="infoTitle">이름</div>
                     <div className="info">신승민</div>
                 </div>
+                <BsGearFill className="userInfoSetting" />
             </div>
         )
     }
