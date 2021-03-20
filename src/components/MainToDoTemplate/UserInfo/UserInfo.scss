@@ -10,8 +10,8 @@
 }
 
 .userImage {
-    border: 5px solid #9E1814;
-    border-radius: 10px;
+    border: 2px solid #EDEFF4;
+    border-radius: 5px;
     margin: 20px;
     width: 150px;
 }
@@ -29,6 +29,7 @@
 }
 
 .userInfoSetting {
+    cursor: pointer;
     position: absolute;
     right : 10px;
     top: 10px;
