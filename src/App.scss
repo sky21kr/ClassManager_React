@@ -3,9 +3,11 @@ $theme-colors: (
 );
 
 @import '~bootstrap/scss/bootstrap';
+@import './Common.scss';
 
 .body {
     background-color: #ffeeee;
+    font-family: $font;
 }
 
 .contents {

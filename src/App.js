@@ -15,19 +15,27 @@ class App extends Component {
 
   // 체크 후 자정이 넘으면 삭제
   componentDidMount() {
-    const newClassList = JSON.parse(localStorage.getItem("classList")).map((cls) => {
-      const newCls = cls
-      newCls.toDoList = cls.toDoList.filter((toDoItem) => {
+    let newClassList = []
+    if (localStorage.getItem("classList")) {
+      newClassList = JSON.parse(localStorage.getItem("classList")).map((cls) => {
+        const newCls = cls
+        newCls.toDoList = cls.toDoList.filter((toDoItem) => {
+          if(moment(toDoItem.checkedTime).add(1, 'd') < moment()) return false
+          return true
+        })
+        return newCls
+      })
+    }
+
+    let newMainToDoList = []
+
+    if (localStorage.getItem("mainToDoList")) {
+      newMainToDoList = JSON.parse(localStorage.getItem("mainToDoList")).filter((toDoItem) => {
         if(moment(toDoItem.checkedTime).add(1, 'd') < moment()) return false
         return true
       })
-      return newCls
-    })
+    } 
 
-    const newMainToDoList = JSON.parse(localStorage.getItem("mainToDoList")).filter((toDoItem) => {
-      if(moment(toDoItem.checkedTime).add(1, 'd') < moment()) return false
-      return true
-    })
 
     this.setState({
       mainToDoList: newMainToDoList || [],

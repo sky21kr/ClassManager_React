@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './UserInfo.scss'
-import userImage from './image/UserImage.png'
+import userImage from '@/assets/images/UserImage.png'
 import { BsGearFill } from "react-icons/bs";
-import UserInfoSetting from "@/components/Modal/UserInfoSettingModal"
+import UserInfoSetting from "@/components/Modal/UserInfoSettingModal/UserInfoSettingModal"
 
 class UserInfo extends Component {
     state = {
